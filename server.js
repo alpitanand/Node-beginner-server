@@ -35,6 +35,10 @@ hbs.registerHelper('screamit', (text)=>{
 //    res.render('maintain.hbs')
 //})
 
+app.get('/project', (req,res)=>{
+  res.render('project.hbs')  
+})
+
 app.get('/', (req, res)=>{
   //res.send('<h1>Hello Express</h1>');
     res.render('page.hbs',{
