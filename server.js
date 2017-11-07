@@ -3,6 +3,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
+const port = process.env.PORT || 3000;
 app.set('view engine', 'hbs');
 
 app.use(express.static(__dirname + '/Public'));
@@ -30,9 +31,9 @@ hbs.registerHelper('screamit', (text)=>{
     return text.toUpperCase();
 });
 
-app.use((req, res, next)=>{
-    res.render('maintain.hbs')
-})
+//app.use((req, res, next)=>{
+//    res.render('maintain.hbs')
+//})
 
 app.get('/', (req, res)=>{
   //res.send('<h1>Hello Express</h1>');
@@ -56,4 +57,6 @@ app.get('/bad',(req, res)=>{
     res.send('<h1>Unable to full fill the request<h1>');
 })
 
-app.listen(3000);
+app.listen(port, ()=>{
+    console.log("Server is up on port "+port);
+});
