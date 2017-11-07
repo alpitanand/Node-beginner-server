@@ -19,6 +19,7 @@ app.use((req, res, next) =>{
     next();
 });
 
+
 hbs.registerPartials(__dirname + '/views/partials')
 
 hbs.registerHelper('getCurrentYear', ()=>{
